@@ -6,7 +6,8 @@ Jinja2 template, and commits the `.ttl` file to a GitHub repo.
 ## 1. Install
 
 ```bash
-cd fair-proxy
+git clone https://github.com/saracuriel/FDP-DataService-records/
+cd FDP-DataService-records
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
