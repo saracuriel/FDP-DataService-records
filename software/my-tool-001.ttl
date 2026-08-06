@@ -1,0 +1,20 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+
+# NOTE: this identifier drives where the file lands in GitHub —
+# the proxy reads {category} and {record_id} straight out of this URI.
+<https://example.org/records/software/my-tool-001>
+    a dcat:Dataset ;
+    dcterms:identifier <https://example.org/records/software/my-tool-001> ;
+    dcterms:title "My Awesome Tool" ;
+    dcterms:description "A tool that does FAIR things." ;
+    dcterms:creator [ a foaf:Agent ; foaf:name "Ada Lovelace" ] ;
+    dcterms:creator [ a foaf:Agent ; foaf:name "Alan Turing" ] ;
+    dcat:keyword "fair" ;
+    dcat:keyword "metadata" ;
+    dcat:keyword "rdf" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-08-06"^^dcterms:W3CDTF .
