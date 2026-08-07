@@ -9,7 +9,7 @@ TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), "..", "templates")
 
 env = Environment(
     loader=FileSystemLoader(TEMPLATE_DIR),
-    trim_blocks=True,
+    trim_blocks=False,
     lstrip_blocks=True,
     extensions=["jinja2.ext.do"],
 )
