@@ -15,17 +15,59 @@
 
 
 
-<https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl> a dcat:Resource, dcat:DataService ;dcterms:identifier "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:string ;ejprd:vpConnection ejprd:VPDiscoverable ;rdfs:isDefinedBy "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:anyURI ;dcat:landingPage "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:anyURI ;dcterms:title "mytitle"^^xsd:string ;
-    rdfs:label "myrecord"^^xsd:string ;vivo:abbreviation "myrecord"^^xsd:string ;dcterms:description """something here"""^^xsd:string ;dcat:version "0.0.1"^^xsd:string ;    ftr:status "Active"@en ;
-dcterms:publisher  <https://orcid.org/0009-0007-1059-8578>  ; dcat:contactPoint  <https://orcid.org/0009-0007-1059-8578>  . 
+
+
+<https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl> a dcat:Resource, dcat:DataService ;
+dcterms:identifier "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:string ;
+ejprd:vpConnection ejprd:VPDiscoverable ;
+rdfs:isDefinedBy "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:anyURI ;
+dcat:landingPage "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:anyURI ;
+dcterms:title "mytitle"^^xsd:string ;
+    rdfs:label "myrecord"^^xsd:string ;
+vivo:abbreviation "myrecord"^^xsd:string ;
+dcterms:description """something here"""^^xsd:string ;
+
+
+
+
+dcat:version "0.0.1"^^xsd:string ;
+
+
+    ftr:status "Active"@en ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+dcterms:publisher  <https://orcid.org/0009-0007-1059-8578>  ; 
+dcat:contactPoint  <https://orcid.org/0009-0007-1059-8578>  . 
+
+
+
 
 
 <https://orcid.org/0009-0007-1059-8578> a vcard:Individual, foaf:Agent ;
     vcard:fn "Sara Curiel Manzanas"^^xsd:string ;
     vcard:hasEmail <mailto:saracurielmanzanas@gmail.com> .
+
+
 <https://raw.githubusercontent.com/FAIRMetrics/Metrics/master/FM_A1.1> a dqv:Metric, ftr:Metric, dcat:Resource;
     rdfs:label "FAIR Metrics - Access Protocol"^^xsd:string ;
     dcterms:identifier "https://raw.githubusercontent.com/FAIRMetrics/Metrics/master/FM_A1.1"^^xsd:string .
+
+
+
+
+
+
 
 
 
