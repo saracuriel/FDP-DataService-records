@@ -35,8 +35,8 @@
     {% if map.GeneralMap.VersionNotes %}adms:versionNotes "{{map.GeneralMap.Abbreviation}}"^^xsd:string ;{% endif %}
     {% if map.GeneralMap.License %}dcterms:license <{{map.GeneralMap.License}}> ;{% endif %}
     ftr:status "Active"@en ;
-    {% if map.GeneralMap.EndpointURL %}dcat:endpointURL <{{map.GeneralMap.EndpointURL}}> ;{% endif %}
-    {% if map.GeneralMap.EndpointURLDescription %}dcat:endpointDescription <{{map.GeneralMap.EndpointURLDescription}}> ;{% endif %}
+    {% if map.GeneralMap.EndpointURL %}dcat:serviceEndpoint <{{map.GeneralMap.EndpointURL}}> ;{% endif %}
+    {% if map.GeneralMap.EndpointURLDescription %}dcat:serviceDescription "{{map.GeneralMap.EndpointURLDescription}}"^^xsd:string ;{% endif %}
     {% if map.GeneralMap.Specification %}ftr:scoringFunction <{{map.GeneralMap.Specification}}> ;{% endif %}
     {% if map.GeneralMap.CodeRepository %}doap:repository <{{map.GeneralMap.CodeRepository}}> ;{% endif %}
     {% if map.GeneralMap.valuesToolMap %}ftr:supportedBy {% for key, value in map.GeneralMap.valuesToolMap.items() %}<{{ value.url | default('https://w3id.org/FAIR-Champion', true) }}>{{ "," if not loop.last }}{{ ";" if loop.last }} {% endfor %}{% else %}{% endif %}
