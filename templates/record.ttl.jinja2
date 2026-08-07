@@ -44,7 +44,7 @@
     {% if map.GeneralMap.valuesOrganisationMap.items() %}{% for key, org in map.GeneralMap.valuesOrganisationMap.items() %}dcterms:creator <{{ org.url | default('https://fairsharing.org/organisations/' ~ org.id, true) }}>; {% endfor %}{% endif %}
     {% for key, fac in map.GeneralMap.valuesFACMap.items() %}{%- if fac.test_url and map.GeneralMap.valuesTagMap.name == "metric"-%}sio:SIO_000234 <{{ fac.test_url }}> ;
     {% if not loop.last %}
-    
+  
     {% endif %}{% endif %}{% endfor %}
     {% for key, fac in map.GeneralMap.valuesFACMap.items() %}{%- if fac.benchmark_url and map.GeneralMap.valuesTagMap.name == "metric"-%} ftr:hasBenchmark <{{ fac.benchmark_url }}> ;
     {% if not loop.last %}
