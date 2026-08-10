@@ -23,8 +23,8 @@
     dcterms:description """something here"""^^xsd:string ;
     dcat:version "0.0.1"^^xsd:string ;
     ftr:status "Active"@en ;
-    dcat:serviceEndpoint <https://beaconapi.com> ;
-    dcat:serviceDescription "https://example.com/openapi.json"^^xsd:string ;
+    dcat:endpointURL <https://beaconapi.com> ;
+    dcat:endpointDescription "https://example.com/openapi.json"^^xsd:string ;
     dcterms:publisher  <https://orcid.org/0009-0007-1059-8578>  ;
     dcat:contactPoint  <https://orcid.org/0009-0007-1059-8578>  .
 
