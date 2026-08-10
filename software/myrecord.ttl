@@ -11,27 +11,70 @@
 @prefix dpv: <https://w3id.org/dpv#> .
 @prefix sio: <http://semanticscience.org/resource/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
-@prefix ejprd: <https://w3id.org/ejp-rd/vocabulary> .
-<https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl> a dcat:Resource, dcat:DataService ;
-    dcterms:identifier "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:string ;
-    ejprd:vpConnection ejprd:VPDiscoverable ;
-    rdfs:isDefinedBy "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:anyURI ;
-    dcat:landingPage "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:anyURI ;
-    dcterms:title "mytitle"^^xsd:string ;
-    rdfs:label "myrecord"^^xsd:string ;
-    vivo:abbreviation "myrecord"^^xsd:string ;
-    dcterms:description """something here"""^^xsd:string ;
-    dcat:version "0.0.1"^^xsd:string ;
+@prefix schema: <http://schema.org/> .
+@prefix ejp: <https://w3id.org/ejp-rd/vocabulary#> .
+
+
+
+
+
+
+<https://ostrails.github.io/assessment-component-metadata-records/test/FT-F2A_M_SM.ttl> a ftr:Test, dcat:DataService ;
+    dcterms:identifier "https://ostrails.github.io/assessment-component-metadata-records/test/FT-F2A_M_SM.ttl"^^xsd:string ;
+    rdfs:isDefinedBy "https://ostrails.github.io/assessment-component-metadata-records/test/FT-F2A_M_SM.ttl"^^xsd:anyURI ;
+    dcat:landingPage "https://github.com/cessda/cessda.fair-tests/blob/main/Test_Logic.md"^^xsd:anyURI ;
+    dcterms:title "FAIR Test – record contains structured metadata"^^xsd:string ;
+    rdfs:label "FT-F2A_M_SM"^^xsd:string ;
+    vivo:abbreviation "FT-F2A_M_SM"^^xsd:string ;
+    dcterms:description """Checks if the document uses a supported namespace by examining the namespace URI of the root element."""^^xsd:string ;
+    ejp:vpConnection ejp:VPDiscoverable ;
+    
+    schema:about "Not applicable"^^xsd:string ;
+    ftr:applicationArea <http://www.fairsharing.org/ontology/subject/SRAO_0000401> ;
+    
+    dcat:version "1.0.0"^^xsd:string ;
+    adms:versionNotes "FT-F2A_M_SM"^^xsd:string ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     ftr:status "Active"@en ;
-    dcat:serviceEndpoint <https://beaconapi.com> ;
-    dcat:serviceDescription "https://example.com/openapi.json"^^xsd:string ;
-    dcterms:publisher  <https://orcid.org/0009-0007-1059-8578>  ;
-    dcat:contactPoint  <https://orcid.org/0009-0007-1059-8578>  .
+     
+    dcat:endpointURL <https://fair-tests.cessda.eu/assess/test/structured-metadata> ;
+    dcat:endpointDescription <https://fair-tests.cessda.eu/api/structured-metadata.ttl> ;
+    
+    doap:repository <https://github.com/cessda/cessda.fair-tests> ;
+    ftr:supportedBy <https://tools.ostrails.eu/champion/>; 
+    
+    dpv:IsApplicableFor <https://schema.org/Dataset>;
+    dcterms:creator <https://ror.org/02wg9xc72>; 
+    
+    
+    
+    sio:SIO_000233 <https://doi.org/10.25504/FAIRsharing.e05e98> ;
+    
+    
+    
+    dcterms:publisher  <https://orcid.org/0000-0002-4402-9644>  ; 
+    dcat:contactPoint  <https://orcid.org/0000-0002-4402-9644>  . 
 
-<https://orcid.org/0009-0007-1059-8578> a vcard:Individual, foaf:Agent ;
-    vcard:fn "Sara Curiel Manzanas"^^xsd:string ;
-    vcard:hasEmail <mailto:saracurielmanzanas@gmail.com> .
 
-<https://raw.githubusercontent.com/FAIRMetrics/Metrics/master/FM_A1.1> a dqv:Metric, ftr:Metric, dcat:Resource;
-    rdfs:label "FAIR Metrics - Access Protocol"^^xsd:string ;
-    dcterms:identifier "https://raw.githubusercontent.com/FAIRMetrics/Metrics/master/FM_A1.1"^^xsd:string .
+
+
+<https://ror.org/02wg9xc72> a vcard:Organisation ;
+    vcard:organisation-name "Consortium of European Social Science Data Archives"^^xsd:string .
+
+<https://orcid.org/0000-0002-4402-9644> a vcard:Individual, foaf:Agent ;
+    vcard:fn "John Shepherdson"^^xsd:string ;
+    vcard:hasEmail <mailto:john.shepherdson@cessda.eu> .
+    
+
+<https://doi.org/10.25504/FAIRsharing.e05e98> a dqv:Metric, ftr:Metric, dcat:Resource;
+    rdfs:label "No name defined"^^xsd:string ;
+    dcterms:identifier "https://doi.org/10.25504/FAIRsharing.e05e98"^^xsd:string .
+
+
+
+
+
+
+
+
+
