@@ -11,7 +11,7 @@
 @prefix dpv: <https://w3id.org/dpv#> .
 @prefix sio: <http://semanticscience.org/resource/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
-@prefix ejprd: <https://w3id.org/ejp-rd/vocabulary> .
+@prefix ejprd: <https://w3id.org/ejp-rd/vocabulary#> .
 <https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl> a dcat:Resource, dcat:DataService ;
     dcterms:identifier "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:string ;
     ejprd:vpConnection ejprd:VPDiscoverable ;
