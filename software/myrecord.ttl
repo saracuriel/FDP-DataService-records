@@ -16,21 +16,19 @@
     dcterms:identifier "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:string ;
     ejprd:vpConnection ejprd:VPDiscoverable ;
     rdfs:isDefinedBy "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:anyURI ;
-    dcat:landingPage "https://saracuriel.github.io/FDP-DataService-records/software/myrecord.ttl"^^xsd:anyURI ;
+    dcat:landingPage "https://example.com"^^xsd:anyURI ;
     dcterms:title "mytitle"^^xsd:string ;
     rdfs:label "myrecord"^^xsd:string ;
     vivo:abbreviation "myrecord"^^xsd:string ;
     dcterms:description """something here"""^^xsd:string ;
     dcat:version "0.0.1"^^xsd:string ;
     ftr:status "Active"@en ;
+    dcterms:language "http://id.loc.gov/vocabulary/iso639-1/en"^^xsd:anyURI ;
     dcat:endpointURL <https://beaconapi.com> ;
     dcat:endpointDescription "https://example.com/openapi.json"^^xsd:string ;
+    ftr:supportedBy <https://tool.com>;
     dcterms:publisher  <https://orcid.org/0009-0007-1059-8578>  ;
-    dcat:contactPoint  <https://orcid.org/0009-0007-1059-8578>  ;
-    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
-    dcat:theme <https://w3id.org/ejp-rd/vocabulary#VPBeacon2_individuals> ;
-    dcterms:license <http://rdflicense.appspot.com/rdflicense/cc-by-nc-nd3.0> ;
-    dcat:keyword "Hello" .
+    dcat:contactPoint  <https://orcid.org/0009-0007-1059-8578>  .
 
 <https://orcid.org/0009-0007-1059-8578> a vcard:Individual, foaf:Agent ;
     vcard:fn "Sara Curiel Manzanas"^^xsd:string ;
