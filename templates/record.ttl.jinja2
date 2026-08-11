@@ -35,6 +35,7 @@
     {% if map.GeneralMap.License %}dcterms:license <{{map.GeneralMap.License}}> ;{% endif %}
     ftr:status "Active"@en ;
     dcterms:language "http://id.loc.gov/vocabulary/iso639-1/en"^^xsd:anyURI ;
+    {% if map.GeneralMap.Logo %}foaf:logo <{{map.GeneralMap.Logo}}> ;{% endif %}
     {% if map.GeneralMap.EndpointURL %}dcat:endpointURL <{{map.GeneralMap.EndpointURL}}> ;{% endif %}
     {% if map.GeneralMap.EndpointURLDescription %}dcat:endpointDescription "{{map.GeneralMap.EndpointURLDescription}}"^^xsd:string ;{% endif %}
     {% if map.GeneralMap.Specification %}ftr:scoringFunction <{{map.GeneralMap.Specification}}> ;{% endif %}
