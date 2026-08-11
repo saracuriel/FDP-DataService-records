@@ -21,7 +21,10 @@
     rdfs:label "myrecord"^^xsd:string ;
     vivo:abbreviation "myrecord"^^xsd:string ;
     dcterms:description """something here"""^^xsd:string ;
+    dcat:keyword "Hello"^^xsd:string, "World"^^xsd:string ;
+    dcat:theme <https://w3id.org/ejp-rd/vocabulary#VPBeacon2_individuals>, <https://w3id.org/ejp-rd/vocabulary#VPBeacon2_individuals> ;
     dcat:version "0.0.1"^^xsd:string ;
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/.> ;
     ftr:status "Active"@en ;
     dcterms:language "http://id.loc.gov/vocabulary/iso639-1/en"^^xsd:anyURI ;
     dcat:endpointURL <https://beaconapi.com> ;
