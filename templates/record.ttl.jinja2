@@ -61,7 +61,6 @@
     {% if map.GeneralMap.valuesPersonMap %}dcat:contactPoint  {% for key, person in map.GeneralMap.valuesPersonMap.items() %}{% if person.person_orcid_code == '' %}<mailto:contact@fairsharing.org> {% else %}<https://orcid.org/{{person.person_orcid_code}}> {% endif %}{{ "," if not loop.last }} {{ "." if loop.last }} {% endfor %}{% endif %}
 
 
-  {% endif %}{% endfor %}
 {% for key, person in map.GeneralMap.valuesPersonMap.items() %}{% if person.person_orcid_code %}
 <https://orcid.org/{{person.person_orcid_code}}> a vcard:Individual, foaf:Agent ;
     vcard:fn "{{ person.person_orcid_name }}"^^xsd:string ;
