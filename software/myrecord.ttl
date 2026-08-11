@@ -27,6 +27,7 @@
     dcterms:license <http://creativecommons.org/licenses/by/4.0/.> ;
     ftr:status "Active"@en ;
     dcterms:language "http://id.loc.gov/vocabulary/iso639-1/en"^^xsd:anyURI ;
+    foaf:logo <https://example.org/image.png> ;
     dcat:endpointURL <https://beaconapi.com> ;
     dcat:endpointDescription "https://example.com/openapi.json"^^xsd:string ;
     dcterms:publisher  <https://orcid.org/0009-0007-1059-8578>  ;
