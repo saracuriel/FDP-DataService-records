@@ -29,7 +29,6 @@
     dcterms:language "http://id.loc.gov/vocabulary/iso639-1/en"^^xsd:anyURI ;
     dcat:endpointURL <https://beaconapi.com> ;
     dcat:endpointDescription "https://example.com/openapi.json"^^xsd:string ;
-    ftr:supportedBy <https://tool.com>;
     dcterms:publisher  <https://orcid.org/0009-0007-1059-8578>  ;
     dcat:contactPoint  <https://orcid.org/0009-0007-1059-8578>  .
 
