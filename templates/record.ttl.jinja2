@@ -39,9 +39,7 @@
     {% if map.GeneralMap.EndpointURLDescription %}dcat:endpointDescription "{{map.GeneralMap.EndpointURLDescription}}"^^xsd:string ;{% endif %}
     {% if map.GeneralMap.Specification %}ftr:scoringFunction <{{map.GeneralMap.Specification}}> ;{% endif %}
     {% if map.GeneralMap.CodeRepository %}doap:repository <{{map.GeneralMap.CodeRepository}}> ;{% endif %}
-    {% if map.GeneralMap.valuesToolMap %}ftr:supportedBy {% for key, value in map.GeneralMap.valuesToolMap.items() %}<{{ value.url | default('https://w3id.org/FAIR-Champion', true) }}>{{ "," if not loop.last }}{{ ";" if loop.last }} {% endfor %}{% else %}{% endif %}
     {% if map.GeneralMap.valuesDigitalObject %}dpv:IsApplicableFor {% for item in map.GeneralMap.valuesDigitalObject %}<{{ item.iri }}>{% if not loop.last %}, {% else %};{% endif %}{% endfor %}{% endif %}
-    {% if map.GeneralMap.valuesOrganisationMap.items() %}{% for key, org in map.GeneralMap.valuesOrganisationMap.items() %}dcterms:creator <{{ org.url | default('https://fairsharing.org/organisations/' ~ org.id, true) }}>; {% endfor %}{% endif %}
     {% for key, fac in map.GeneralMap.valuesFACMap.items() %}{%- if fac.test_url and map.GeneralMap.valuesTagMap.name == "metric"-%}sio:SIO_000234 <{{ fac.test_url }}> ;
     {% if not loop.last %}
   
@@ -62,11 +60,6 @@
     {% if map.GeneralMap.valuesPersonMap %}dcterms:publisher  {% for key, person in map.GeneralMap.valuesPersonMap.items() %}{% if person.person_orcid_code =='' %}"FAIRsharing Team" {% else %}<https://orcid.org/{{person.person_orcid_code}}> {% endif %}{{ "," if not loop.last }} {{ ";" if loop.last }} {% endfor %}{% endif %}
     {% if map.GeneralMap.valuesPersonMap %}dcat:contactPoint  {% for key, person in map.GeneralMap.valuesPersonMap.items() %}{% if person.person_orcid_code == '' %}<mailto:contact@fairsharing.org> {% else %}<https://orcid.org/{{person.person_orcid_code}}> {% endif %}{{ "," if not loop.last }} {{ "." if loop.last }} {% endfor %}{% endif %}
 
-
-
-{% for key, org in map.GeneralMap.valuesOrganisationMap.items() %}
-<{{ org.url | default('https://fairsharing.org/organisations/' ~ org.id, true) }}> a vcard:Organisation ;
-    vcard:organisation-name "{{ org.label | default("No name defined") }}"^^xsd:string .{% if not loop.last %}
 
   {% endif %}{% endfor %}
 {% for key, person in map.GeneralMap.valuesPersonMap.items() %}{% if person.person_orcid_code %}
