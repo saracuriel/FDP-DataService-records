@@ -35,9 +35,11 @@
     {% if map.GeneralMap.License %}dcterms:license <{{map.GeneralMap.License}}> ;{% endif %}
     ftr:status "Active"@en ;
     dcterms:language "http://id.loc.gov/vocabulary/iso639-1/en"^^xsd:anyURI ;
+    {% if map.GeneralMap.Type %}dcterms:type <{{map.GeneralMap.Type}}> ;{% endif %}
+    
     {% if map.GeneralMap.Logo %}foaf:logo <{{map.GeneralMap.Logo}}> ;{% endif %}
     {% if map.GeneralMap.EndpointURL %}dcat:endpointURL <{{map.GeneralMap.EndpointURL}}> ;{% endif %}
-    {% if map.GeneralMap.EndpointURLDescription %}dcat:endpointDescription "{{map.GeneralMap.EndpointURLDescription}}"^^xsd:string ;{% endif %}
+    {% if map.GeneralMap.EndpointURLDescription %}dcat:endpointDescription "{{map.GeneralMap.EndpointURLDescription}}"^^xsd:anyURI ;{% endif %}
     {% if map.GeneralMap.Specification %}ftr:scoringFunction <{{map.GeneralMap.Specification}}> ;{% endif %}
     {% if map.GeneralMap.CodeRepository %}doap:repository <{{map.GeneralMap.CodeRepository}}> ;{% endif %}
     {% if map.GeneralMap.valuesDigitalObject %}dpv:IsApplicableFor {% for item in map.GeneralMap.valuesDigitalObject %}<{{ item.iri }}>{% if not loop.last %}, {% else %};{% endif %}{% endfor %}{% endif %}
