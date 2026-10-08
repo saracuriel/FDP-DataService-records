@@ -1,0 +1,33 @@
+name: Register records with ERDERA FDP Index
+
+on:
+  push:
+    branches: [main]
+    paths: ["software/**.ttl"]
+  schedule:
+    - cron: "0 3 * * 1"      # every Monday 03:00 UTC (keeps records "active")
+  workflow_dispatch:          # lets you run it manually from the Actions tab
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: POST each TTL to the FDP Index Proxy
+        env:
+          PROXY: ${{ vars.FDP_PROXY_URL }}   
+          BASE:  ${{ vars.RECORD_BASE_URL }} 
+        run: |
+          set -e
+          fail=0
+          for f in software/*.ttl; do
+            url="$BASE/$(basename "$f")"
+            echo "Registering $url"
+            code=$(curl -s -o resp.txt -w "%{http_code}" -X POST \
+                   -H "Content-Type: application/json" \
+                   -d "{\"clientUrl\": \"$url\"}" "$PROXY")
+            echo "HTTP $code: $(cat resp.txt)"
+            [ "$code" = "200" ] || fail=1
+          done
+          exit $fail
