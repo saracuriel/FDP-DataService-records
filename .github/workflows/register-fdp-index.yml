@@ -5,14 +5,14 @@ on:
     branches: [main]
     paths: ["software/**.ttl"]
   schedule:
-    - cron: "0 3 * * 1"      # every Monday 03:00 UTC (keeps records "active")
+    - cron: "0 */6 * * *" 
   workflow_dispatch:          # lets you run it manually from the Actions tab
 
 jobs:
   register:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: POST each TTL to the FDP Index Proxy
         env:
