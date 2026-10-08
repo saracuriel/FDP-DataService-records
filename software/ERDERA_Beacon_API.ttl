@@ -27,9 +27,10 @@
     dcterms:license <https://eprovide.mapi-trust.org/about/about-proqolid> ;
     ftr:status "Active"@en ;
     dcterms:language "http://id.loc.gov/vocabulary/iso639-1/en"^^xsd:anyURI ;
+    dcterms:type <https://w3id.org/ejp-rd/vocabulary#VPBeacon2_individuals> ;
     foaf:logo <https://eprovide.mapi-trust.org/assets/images/eprovide-logo.png> ;
     dcat:endpointURL <https://fairdata.mapi-trust.org/beacon> ;
-    dcat:endpointDescription "https://fairdata.mapi-trust.org/beacon/doc"^^xsd:string ;
+    dcat:endpointDescription "https://fairdata.mapi-trust.org/beacon/doc"^^xsd:anyURI ;
     dcterms:publisher  <https://orcid.org/0000-0001-6755-9501>  ;
     dcat:contactPoint  <https://orcid.org/0000-0001-6755-9501>  .
 
