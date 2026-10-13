@@ -1,0 +1,93 @@
+name: Trigger FDP Index proxy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Wait for GitHub Pages deployment
+        run: |
+          echo "Waiting 5 minutes for GitHub Pages to refresh..."
+          sleep 300
+
+      - name: Check last non-bot commit and POST if single .ttl in /software folder (debug)
+        run: |
+          echo "Checking last non-bot commit (ignoring GitHub Actions commits)..."
+          echo "-----------------------------------------"
+
+          # Find last non-bot commit
+          LAST_REAL_COMMIT=$(git log --no-merges --format="%H %an" | grep -v "github-actions\[bot\]" | head -n 1 | awk '{print $1}')
+          echo "Last real commit SHA: $LAST_REAL_COMMIT"
+
+          echo "DEBUG: Commit details:"
+          git show --oneline --name-only $LAST_REAL_COMMIT || echo "Failed to show commit info"
+          echo "-----------------------------------------"
+
+          # List changed files
+          LAST_COMMIT_FILES=$(git show --name-only --pretty="" $LAST_REAL_COMMIT)
+          echo "Changed files in that commit:"
+          echo "$LAST_COMMIT_FILES"
+          echo "-----------------------------------------"
+
+          COUNT=$(echo "$LAST_COMMIT_FILES" | grep -v '^$' | wc -l | tr -d ' ')
+          echo "Total changed files: $COUNT"
+
+          # Accept folders: software/
+          TARGET_FILES=$(echo "$LAST_COMMIT_FILES" | grep -E '^(software)/.+\.ttl$' || true)
+
+          if [ -n "$TARGET_FILES" ]; then
+            echo "Commit affected target folders:"
+            echo "$TARGET_FILES"
+          else
+            echo "Commit did not affect software/ folder."
+          fi
+
+          # Proceed only if exactly one file AND it matches folder pattern
+          if [ "$COUNT" -eq 1 ] && echo "$LAST_COMMIT_FILES" | grep -qE '^(software)/.+\.ttl$'; then
+            FILE_PATH=$(echo "$LAST_COMMIT_FILES" | grep -E '^(software)/.+\.ttl$')
+            FILE_NAME=$(basename "$FILE_PATH")
+            FOLDER=$(echo "$FILE_PATH" | cut -d'/' -f1)
+
+            echo "Single TTL file detected: $FILE_PATH"
+            echo "Folder: $FOLDER"
+
+            CLIENT_URL="https://saracuriel.github.io/FDP-DataService-record/${FOLDER}/${FILE_NAME}"
+            JSON_PAYLOAD=$(printf '{"clientUrl": "%s"}' "$CLIENT_URL")
+
+            echo "CLIENT_URL: $CLIENT_URL"
+            echo "JSON payload: $JSON_PAYLOAD"
+            echo "-----------------------------------------"
+
+            echo "Checking if file is available on GitHub Pages..."
+            if curl --head --silent --fail "$CLIENT_URL" > /dev/null; then
+              echo "File available on GitHub Pages. Sending POST request..."
+              curl -v -L -H "content-type: application/json" \
+                -d "$JSON_PAYLOAD" \
+                https://fdp-index-proxy.erdera.org/fdp-index-proxy
+            else
+              echo "File not yet reachable on GitHub Pages: $CLIENT_URL"
+              echo "Skipping POST."
+            fi
+          else
+            echo "Conditions not met for POST:"
+            echo "   - Single file commit required (found $COUNT)"
+            echo "   - File must be in software/ and end with .ttl"
+          fi
+ 
