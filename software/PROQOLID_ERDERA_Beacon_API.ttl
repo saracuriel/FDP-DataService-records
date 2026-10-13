@@ -12,6 +12,7 @@
 @prefix sio: <http://semanticscience.org/resource/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix ejprd: <https://w3id.org/ejp-rd/vocabulary#> .
+
 <https://saracuriel.github.io/FDP-DataService-records/software/PROQOLID_ERDERA_Beacon_API.ttl> a dcat:Resource, dcat:DataService ;
     dcterms:identifier "https://saracuriel.github.io/FDP-DataService-records/software/PROQOLID_ERDERA_Beacon_API.ttl"^^xsd:string ;
     ejprd:vpConnection ejprd:VPDiscoverable ;
