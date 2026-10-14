@@ -81,7 +81,7 @@ jobs:
               echo "File available on GitHub Pages. Sending POST request..."
               curl -v -L -H "content-type: application/json" \
                 -d "$JSON_PAYLOAD" \
-                https://fdp-index-proxy.erdera.org/fdp-index-proxy
+                https://fdp-index-proxy.erdera.org/fdp-index-proxy/proxy
             else
               echo "File not yet reachable on GitHub Pages: $CLIENT_URL"
               echo "Skipping POST."
